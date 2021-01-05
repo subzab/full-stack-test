@@ -1,0 +1,50 @@
+version: "3.3"
+services:
+  # node:
+  #   build: ./
+  #   ports:
+  #     - "5000:5000"
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     PORT: 5000
+  #     DB_HOST: db
+  #     DB_PASSWORD: password
+  #     DB_DB: test
+  #   restart: unless-stopped
+  #   networks:
+  #     - app-network
+
+  # db:
+  #   image: mysql:5.7.30
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: "test"
+  #     MYSQL_ROOT_PASSWORD: "password"
+  #   ports:
+  #     - "3306:3306"
+  #   expose:
+  #     - "3306"
+  #   volumes:
+  #     - ./init.sql:/data/application/init.sql
+  #     - my-db:/var/lib/mysql
+  #   networks:
+  #     - app-network
+  #   command: --init-file /data/application/init.sql
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
+
+networks:
+  app-network:
+    driver: bridge

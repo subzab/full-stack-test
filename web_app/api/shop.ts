@@ -4,7 +4,7 @@ import { Shop } from '../interfaces'
 /**
  * Default Url
  */
-const host = `http://${process.env.HOST}`
+const host = process.env.HOST
 /**
  * Get shop list
  */

@@ -5,7 +5,7 @@ services:
     ports:
       - "80:3000"
     environment:
-      HOST: api
+      HOST: http://localhost:5000
 
   api:
     build: ./api

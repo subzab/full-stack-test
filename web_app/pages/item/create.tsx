@@ -18,7 +18,6 @@ function Create() {
   const [loading, setloading] = useState<boolean>(false)
 
   const onFinish = (values: any) => {
-    console.log(values)
     setloading(true)
     createItem(values)
       .then(() => {

@@ -42,7 +42,7 @@ function edit() {
   }
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo)
+    console.error('Failed:', errorInfo)
   }
 
   useEffect(() => {

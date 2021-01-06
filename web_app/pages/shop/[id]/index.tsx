@@ -40,7 +40,6 @@ function ShopInfo() {
         const result = res?.data?.data.filter((val: Item) => {
           return items.map((s: Item) => s._id).indexOf(val._id) === -1
         })
-        console.log(result)
         setItemList(result)
       })
       .catch((err) => console.error(err))
@@ -60,8 +59,6 @@ function ShopInfo() {
       setdata({ ...data, items: [...data.items, item] as Item[] })
     }
     getItemList(data?.items as Item[])
-
-    console.log(`selected ${item}`)
   }
 
   const removeItem = (id: string) => {
@@ -138,15 +135,7 @@ function ShopInfo() {
               showSearch
               placeholder="Select Item to add"
               style={{ width: 400 }}
-              // placeholder="Select a person"
-              // optionFilterProp="children"
               onChange={onChange}
-              // onFocus={onFocus}
-              // onBlur={onBlur}
-              // onSearch={onSearch}
-              // filterOption={(input, option) =>
-              //   option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-              // }
             >
               {itemList.map((item: Item) => (
                 <Option value={item._id}>{renderMenu(item)}</Option>

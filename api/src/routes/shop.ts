@@ -13,7 +13,7 @@ router.get('/', async (_req: Request, res: Response, _next: any) => {
 router.get('/:id', async (req: Request, res: Response, _next: any) => {
   if (!req.params.id) return res.status(400).send()
 
-  const shop = await Shop.findById(req.params.id)
+  const shop = await Shop.findById(req.params.id).populate('items')
   if (!shop) {
     return res.status(404).send()
   }

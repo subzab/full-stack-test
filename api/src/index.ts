@@ -8,8 +8,21 @@ import app from './app/app'
 import * as http from 'http'
 import debug from 'debug'
 import { config } from 'dotenv'
+const mongoose = require('mongoose')
+
 config()
-require('./config/db')
+mongoose
+  .connect(`${process.env.MONGO_URL}`, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.info('DB connected!!'))
+  .catch((error: any) => console.info("can't connect to DB : ", error))
+
+mongoose.connection.on('error', (err: any) => {
+  console.error(err)
+})
 /**
  * Get port from environment and store in Express.
  */

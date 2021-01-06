@@ -16,7 +16,11 @@ const columns = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: (text: string) => <a>{text}</a>,
+    render: (text: string, record: Shop) => (
+      <Link href={`/shop/${record._id}`}>
+        <a>{text}</a>
+      </Link>
+    ),
   },
   {
     title: 'Description',
@@ -63,12 +67,14 @@ const IndexPage = () => {
         setloading(false)
       })
   }, [])
+
   useEffect(() => {
     fetchShops()
   }, [fetchShops])
 
   return (
     <Layout title="Shop List">
+      <h1>Shop List</h1>
       <ButtonContainer justify="end">
         <Button type="primary" size="large" onClick={() => router.push('/shop/create')}>
           Create

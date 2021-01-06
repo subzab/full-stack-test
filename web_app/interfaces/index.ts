@@ -9,9 +9,11 @@ export type Shop = {
   description: string
   phone: string
   address: string
+  items: Item[]
 }
 
 export type Item = {
+  _id: string
   name: string
   category: string
 }

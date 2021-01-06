@@ -29,4 +29,25 @@ router.post('/', async (req: Request, res: Response, _next: any) => {
   }
 })
 
+/*Update Item */
+router.put('/:id', async (req: Request, res: Response, _next: any) => {
+  if (!req.params.id) return res.status(400).send()
+  try {
+    const item = await Item.findByIdAndUpdate(req.params.id, { ...req.body })
+    return res.send(item)
+  } catch (e) {
+    return res.status(400).send(e)
+  }
+})
+
+/*Delete Item */
+router.delete('/:id', async (req: Request, res: Response, _next: any) => {
+  try {
+    const item = await Item.findByIdAndRemove(req.params.id)
+    return res.send(item)
+  } catch (e) {
+    return res.status(500).send()
+  }
+})
+
 export default router

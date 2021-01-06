@@ -37,3 +37,11 @@ export const updateItemById = (id: string, data: Item) => {
 export const createItem = (data: Item) => {
   return axios.post(`${host}/items`, data)
 }
+
+/**
+ *
+ * @param id delete item
+ */
+export const deleteItem = (id: string) => {
+  return axios.delete(`${host}/items/${id}`)
+}

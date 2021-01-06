@@ -35,7 +35,7 @@ function edit() {
     setloading(true)
     updateItemById(String(router.query.id), values)
       .then(() => {
-        router.push('/shop')
+        router.push('/item')
       })
       .catch((err: Error) => console.error(err))
       .finally(() => setloading(false))

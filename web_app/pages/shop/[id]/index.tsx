@@ -5,7 +5,6 @@ import { Item, Shop } from '../../../interfaces'
 import { getShopById, updateShopById } from '../../../api/shop'
 import { getItems } from '../../../api/item'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import styled from 'styled-components'
 
 const { Option } = Select
@@ -22,9 +21,7 @@ function ShopInfo() {
   const router = useRouter()
   const [data, setdata] = useState<Shop | undefined>()
   const [loading, setloading] = useState<boolean>(false)
-  const [selectedItems, setSelectedItems] = useState<Item[]>([])
   const [itemList, setItemList] = useState<Item[]>([])
-  const [loadingItem, setLoadingItem] = useState<boolean>(false)
 
   const fetchData = useCallback(() => {
     setloading(true)

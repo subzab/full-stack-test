@@ -5,7 +5,7 @@ services:
     ports:
       - "80:3000"
     environment:
-      HOST: api
+      HOST: 54.169.166.66
     links:
       - api
 

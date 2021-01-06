@@ -1,7 +1,7 @@
 const withSass = require('@zeit/next-sass')
 const withLess = require('@zeit/next-less')
 const withCSS = require('@zeit/next-css')
-
+require('dotenv').config()
 const isProd = process.env.NODE_ENV === 'production'
 
 // fix: prevents error when .less files are required by node
@@ -11,7 +11,7 @@ if (typeof require !== 'undefined') {
 
 module.exports = {
   env: {
-    HOST: 'localhost:5000',
+    HOST: process.env.HOST,
   },
   async redirects() {
     return [

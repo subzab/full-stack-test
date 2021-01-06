@@ -4,7 +4,7 @@ import { Item } from '../interfaces'
 /**
  * Default Url
  */
-const host = 'http://localhost:5000'
+const host = `http://${process.env.HOST}`
 
 /**
  * Get Item list

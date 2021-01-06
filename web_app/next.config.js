@@ -10,6 +10,9 @@ if (typeof require !== 'undefined') {
 }
 
 module.exports = {
+  env: {
+    HOST: 'localhost:5000',
+  },
   async redirects() {
     return [
       {
